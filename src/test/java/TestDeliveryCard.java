@@ -34,7 +34,10 @@ public class TestDeliveryCard {
         $("[name=phone]").setValue("+79883265502");
         $("[data-test-id='agreement']").click();
         $(".button__text").click();
-        $x("//div[contains(text(), 'забронирована')]").should(appear, Duration.ofSeconds(15));
+        $("[data-test-id = notification]").shouldHave(text("Успешно!"),
+                Duration.ofSeconds(15)).shouldBe(visible);
+        $(".notification__content").shouldHave(text("Встреча успешно забронирована на " + date),
+                Duration.ofSeconds(15)).shouldBe(visible);
     }
 
     @Test
@@ -47,7 +50,10 @@ public class TestDeliveryCard {
         $("[name=phone]").setValue("+79883265502");
         $("[data-test-id='agreement']").click();
         $(".button__text").click();
-        $x("//div[contains(text(), 'забронирована')]").should(appear, Duration.ofSeconds(15));
+        $("[data-test-id = notification]").shouldHave(text("Успешно!"),
+                Duration.ofSeconds(15)).shouldBe(visible);
+        $(".notification__content").shouldHave(text("Встреча успешно забронирована на " + date),
+                Duration.ofSeconds(15)).shouldBe(visible);
 
     }
 
@@ -61,7 +67,10 @@ public class TestDeliveryCard {
         $("[name=phone]").setValue("+79883265502");
         $("[data-test-id='agreement']").click();
         $(".button__text").click();
-        $x("//div[contains(text(), 'забронирована')]").should(appear, Duration.ofSeconds(15));
+        $x("//div[contains(text(), 'забронирована')]").should(appear, Duration.ofSeconds(15));$("[data-test-id = notification]").shouldHave(text("Успешно!"),
+                Duration.ofSeconds(15)).shouldBe(visible);
+        $(".notification__content").shouldHave(text("Встреча успешно забронирована на " + date),
+                Duration.ofSeconds(15)).shouldBe(visible);
     }
 
     @Test
